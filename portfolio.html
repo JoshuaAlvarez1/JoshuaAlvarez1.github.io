@@ -9,6 +9,18 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <style>
       body,h1,h2,h3,h4,h5,h6 {font-family: "Raleway", sans-serif}
+      /* Create an active/current tablink class */
+      .tab button.active {
+	  background-color: #ccc;
+      }
+
+      /* Style the tab content */
+      .tabcontent {
+	  display: none;
+	  padding: 6px 12px;
+	  border: 1px solid #ccc;
+	  border-top: none;
+      }
     </style>
   </head>
   <body class="w3-light-grey w3-content" style="max-width:1600px">
@@ -24,8 +36,13 @@
       </div>
       <div class="w3-bar-block">
 	<a href="#portfolio" onclick="w3_close()" class="w3-bar-item w3-button w3-padding w3-text-teal"><i class="fa fa-th-large fa-fw w3-margin-right"></i>PORTFOLIO</a>
-	<a href="#fingerprints" onclick="w3_close()" class="w3-bar-item w3-button w3-padding w3-text-teal"><i class="fa fa-th-large fa-fw w3-margin-right"></i>FINGER PRINTS</a>
+	<button class="tablinks" onclick="openTab(event, 'FingerPrint')">FingerPrint</button>
       </div>
+      <div id="FingerPrint" class="tabcontent">
+	<h3>FingerPrint</h3>
+	<p>blank till I figure this shit out</p>
+	</div>
+      
       <div class="w3-panel w3-large">
 
       </div>
@@ -111,7 +128,7 @@
 
       <div class="w3-container w3-padding-large" style="margin-bottom:32px">
 	<h4><b>About Me</b></h4>
-	<p>My hobbies consist of weight-lifting, alcohol, and T.V.</p>
+	<p>I'm an ambitious student, prepared for any challenge. I enjoy studying music theory, learning to code, working out, and cooking.</p>
 	<hr>
 
 	<h4>CS1 Skills</h4>
@@ -134,19 +151,22 @@
 	
       <!-- End page content -->
     </div>
-
-    <script>
-      // Script to open and close sidebar
-      function w3_open() {
-          document.getElementById("mySidebar").style.display = "block";
-          document.getElementById("myOverlay").style.display = "block";
-      }
-
-      function w3_close() {
-          document.getElementById("mySidebar").style.display = "none";
-          document.getElementById("myOverlay").style.display = "none";
-      }
-    </script>
-
+      <script>
+	function openTab(evt, tabName){
+	    var i, tabcontent, tablinks;
+	    tabcontent = document.getElementsByClassName("tabcontent");
+	    for (i = 0; i < tabcontent.length; i++) {
+		tabcontent[i].style.display = "none";
+	    }
+	    tablinks = document.getElementsByClassName("tablinks");
+	    for (i = 0; i < tablinks.length; i++) {
+		tablinks[i].className = tablinks[i].className.replace(" active", "");
+	    }
+	    document.getElementById(tabName).style.display = "block";
+	    evt.currentTarget.className += " active";
+	    }
+	
+      </script>
+   
   </body>
 </html>
