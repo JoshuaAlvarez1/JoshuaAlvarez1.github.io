@@ -2,10 +2,25 @@
 <html>
   <body>
 
-    <h2>Testing Field</h2>
-    <form action="/action_page.php">
-      <label for="fname">Input:</label><br>
-      <input type="text" id="fname" name="fname"><br>
-    </form>
-    </body>
-</html>
+    <h3>sorting method</h3>
+
+    <input type="text" id="myText" value="Some text...">
+
+    <p>Click the "append" button</p>
+
+    <button onclick="myFunction()">append</button>
+   
+    <p id="demo"></p>
+
+    <script>
+      var unsorted = [];
+      function myFunction() {
+          var x = document.getElementById("myText").value;
+	  unsorted.push(x);
+          document.getElementById("demo").innerHTML = unsorted.sort();
+      }
+      
+    </script>
+
+  </body>
+  </html>
